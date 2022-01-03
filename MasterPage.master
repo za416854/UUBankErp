@@ -1,0 +1,389 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="MasterPage.master.cs" Inherits="MasterPage" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>UUU Bank</title>
+    <link href="Content/bootstrap.css" rel="stylesheet" />
+    <link rel="stylesheet" href="../../vendors/ti-icons/css/themify-icons.css">
+    <link rel="stylesheet" href="../../vendors/css/vendor.bundle.base.css">
+    <link href="vendors/font-awesome/css/font-awesome.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="../../../../vendors/mdi/css/materialdesignicons.min.css">
+    <link rel="stylesheet" href="../../../../vendors/simple-line-icons/css/simple-line-icons.css">
+    <link rel="stylesheet" href="../../css/vertical-layout-light/style.css">
+    <link rel="shortcut icon" href="../../images/favicon.png" />
+    <link href="2.custom/tonyCss/sweetalert2.css" rel="stylesheet" />
+
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+
+<body onload="ShowTime()" class="sidebar-dark">
+    <form id="form" runat="server">
+        <div class="container-scroller">
+            <!-- partial:partials/_navbar.html -->
+            <nav class="navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
+                <div class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-center">
+                    <a class="navbar-brand brand-logo me-5" href="../default.aspx">
+                        <img src="images/louis/mylogo.png" class="me-2" alt="logo" /></a>
+                    <a class="navbar-brand brand-logo-mini" href="../default.aspx">
+                        <img src="images/louis/mylogomini.png" alt="logo" /></a>
+                </div>
+                <div class="navbar-menu-wrapper d-flex align-items-center justify-content-end">
+                    <button class="navbar-toggler navbar-toggler align-self-center" type="button" data-toggle="minimize">
+                        <span class="ti-layout-grid2"></span>
+                    </button>
+
+
+                    <ul class="navbar-nav navbar-nav-right">
+                        <%--<li class="nav-item dropdown me-1">
+                            <a class="nav-link count-indicator dropdown-toggle d-flex justify-content-center align-items-center" id="messageDropdown" href="#" data-bs-toggle="dropdown">
+                                <i class="ti-email mx-0"></i>
+                            </a>
+                            <div class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list" aria-labelledby="messageDropdown">
+                                <p class="mb-0 font-weight-normal float-left dropdown-header">Messages</p>
+                                <a class="dropdown-item preview-item">
+                                    <div class="preview-thumbnail">
+                                        <img src="https://via.placeholder.com/36x36" alt="image" class="profile-pic">
+                                    </div>
+                                    <div class="preview-item-content flex-grow">
+                                        <h6 class="preview-subject ellipsis font-weight-normal">David Grey
+                                        </h6>
+                                        <p class="font-weight-light small-text text-muted mb-0">
+                                            The meeting is cancelled
+                 
+                                        </p>
+                                    </div>
+                                </a>
+                                <a class="dropdown-item preview-item">
+                                    <div class="preview-thumbnail">
+                                        <img src="https://via.placeholder.com/36x36" alt="image" class="profile-pic">
+                                    </div>
+                                    <div class="preview-item-content flex-grow">
+                                        <h6 class="preview-subject ellipsis font-weight-normal">Tim Cook
+                                        </h6>
+                                        <p class="font-weight-light small-text text-muted mb-0">
+                                            New product launch
+                 
+                                        </p>
+                                    </div>
+                                </a>
+                                <a class="dropdown-item preview-item">
+                                    <div class="preview-thumbnail">
+                                        <img src="https://via.placeholder.com/36x36" alt="image" class="profile-pic">
+                                    </div>
+                                    <div class="preview-item-content flex-grow">
+                                        <h6 class="preview-subject ellipsis font-weight-normal">Johnson
+                                        </h6>
+                                        <p class="font-weight-light small-text text-muted mb-0">
+                                            Upcoming board meeting
+                 
+                                        </p>
+                                    </div>
+                                </a>
+                            </div>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link count-indicator" href="#">
+                                <i class="ti-bell"></i>
+                                <span class="count"></span>
+                            </a>
+                        </li>--%>
+
+                        <li class="nav-item nav-settings d-none d-lg-flex">
+                            <a class="nav-link" href="#">
+                                <i class="ti-user" runat="server" id="tiUser"></i>
+                            </a>
+                        </li>
+
+                        <li class="nav-item dropdown">
+                            <a class="nav-link count-indicator">
+                                <i class='fa fa-sign-out text-primary'>
+                                    <input type="button" value="登出" class="dropdown-item text-primary" id="logout" /></i>
+                                <%--<asp:Button CssClass="dropdown-item text-primary" ID="logout" runat="server" OnClientClick="return false" OnClick="logout_Click" Text="登出" />--%>
+                                <%--<input type="hidden" name="__EVENTTARGET" id="__EVENTTARGET" value="" />--%>
+                            </a>
+                        </li>
+                    </ul>
+                    <button class="navbar-toggler navbar-toggler-right d-lg-none align-self-center" type="button" data-toggle="offcanvas">
+                        <span class="ti-layout-grid2"></span>
+                    </button>
+                </div>
+            </nav>
+            <!-- partial -->
+            <div class="container-fluid page-body-wrapper">
+                <!-- partial:partials/_settings-panel.html -->
+                <div class="theme-setting-wrapper">
+                    <div id="settings-trigger"><i class="ti-settings"></i></div>
+                    <div id="theme-settings" class="settings-panel">
+                        <i class="settings-close ti-close"></i>
+                        <p class="settings-heading">SIDEBAR SKINS</p>
+                        <div class="sidebar-bg-options" id="sidebar-light-theme">
+                            <div class="img-ss rounded-circle bg-light border me-3"></div>
+                            Light
+                        </div>
+                        <div class="sidebar-bg-options selected" id="sidebar-dark-theme">
+                            <div class="img-ss rounded-circle bg-dark border me-3"></div>
+                            Dark
+                        </div>
+                        <p class="settings-heading mt-2">HEADER SKINS</p>
+                        <div class="color-tiles mx-0 px-4">
+                            <div class="tiles success"></div>
+                            <div class="tiles warning"></div>
+                            <div class="tiles danger"></div>
+                            <div class="tiles light"></div>
+                            <div class="tiles info"></div>
+                            <div class="tiles dark"></div>
+                            <div class="tiles default"></div>
+                        </div>
+                    </div>
+                </div>
+                <div id="right-sidebar" class="settings-panel">
+                    <i class="settings-close ti-close"></i>
+                    <ul class="nav nav-tabs border-top" id="setting-panel" role="tablist">
+                        <li class="nav-item">
+                            <a class="nav-link active" id="todo-tab" data-bs-toggle="tab" href="#todo-section" role="tab" aria-controls="todo-section" aria-expanded="true">TO DO LIST</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" id="chats-tab" data-bs-toggle="tab" href="#chats-section" role="tab" aria-controls="chats-section">CHATS</a>
+                        </li>
+                    </ul>
+                    <div class="tab-content" id="setting-content">
+                        <div class="tab-pane fade show active scroll-wrapper" id="todo-section" role="tabpanel" aria-labelledby="todo-section">
+                            <div class="add-items d-flex px-3 mb-0">
+                                <div class="form w-100">
+                                    <div class="form-group d-flex">
+                                        <input type="text" class="form-control todo-list-input" placeholder="Add To-do">
+                                        <button type="submit" class="add btn btn-primary todo-list-add-btn" id="add-task">Add</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="list-wrapper px-3">
+                                <ul class="d-flex flex-column-reverse todo-list">
+                                    <li>
+                                        <div class="form-check">
+                                            <label class="form-check-label">
+                                                <input class="checkbox" type="checkbox">
+                                                Team review meeting at 3.00 PM
+                                            </label>
+                                        </div>
+                                        <i class="remove ti-close"></i>
+                                    </li>
+                                </ul>
+                            </div>
+                            <h4 class="px-3 text-muted mt-5 font-weight-light mb-0">Events</h4>
+                            <div class="events pt-4 px-3">
+                                <div class="wrapper d-flex mb-2">
+                                    <i class="ti-control-record text-primary me-2"></i>
+                                    <span>Feb 11 2018</span>
+                                </div>
+                                <p class="mb-0 font-weight-thin text-gray">Creating component page build a js</p>
+                                <p class="text-gray mb-0">build a js based app</p>
+                            </div>
+                            <div class="events pt-4 px-3">
+                                <div class="wrapper d-flex mb-2">
+                                    <i class="ti-control-record text-primary me-2"></i>
+                                    <span>Feb 7 2018</span>
+                                </div>
+                                <p class="mb-0 font-weight-thin text-gray">Meeting with Alisa</p>
+                                <p class="text-gray mb-0 ">Call Sarah Graves</p>
+                            </div>
+                        </div>
+                        <!-- To do section tab ends -->
+                        <div class="tab-pane fade" id="chats-section" role="tabpanel" aria-labelledby="chats-section">
+                            <div class="d-flex align-items-center justify-content-between border-bottom">
+                                <p class="settings-heading border-top-0 mb-3 ps-3 pt-0 border-bottom-0 pb-0">Friends</p>
+                                <small class="settings-heading border-top-0 mb-3 pt-0 border-bottom-0 pb-0 pe-3 font-weight-normal">See All</small>
+                            </div>
+                        </div>
+                        <!-- chat tab ends -->
+                    </div>
+                </div>
+                <!-- partial -->
+                <!-- partial:partials/_sidebar.html -->
+                <nav class="sidebar sidebar-offcanvas" id="sidebar">
+                    <ul class="nav">
+                        <li class="nav-item">
+                            <asp:HyperLink CssClass="nav-link" ID="HyperLink2" runat="server" NavigateUrl="~/Default.aspx">
+                                <i class="ti-home menu-icon"></i>
+                                <span class="menu-title">主頁</span>
+                            </asp:HyperLink>
+                        </li>
+                        <li class="nav-item">
+                            <asp:HyperLink CssClass="nav-link" ID="HyperLink1" runat="server">
+                                <i class="ti-face-smile menu-icon"></i>
+                                <span class="menu-title">個人資料</span>
+                            </asp:HyperLink>
+                        </li>
+                        <li class="nav-item">
+                            <asp:HyperLink CssClass="nav-link" ID="HyperLink3" runat="server">
+                                <i class="ti-calendar menu-icon"></i>
+                                <span class="menu-title">行事曆</span>
+                            </asp:HyperLink>
+                        </li>
+                        <li class="nav-item">
+                            <asp:HyperLink CssClass="nav-link" ID="HyperLink4" runat="server">
+                                <i class="fa fa-group menu-icon"></i>
+                                <span class="menu-title">會議室預約</span>
+                            </asp:HyperLink>
+                        </li>
+                        <li class="nav-item">
+                            <asp:HyperLink ID="HumanEM" runat="server" CssClass="nav-link" NavigateUrl="~/2.HumanLogin.aspx"><i class="ti-user menu-icon""></i>
+                                <span class="menu-title">人事系統</span></asp:HyperLink>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" data-bs-toggle="collapse" href="#club" aria-expanded="false" aria-controls="e-commerce">
+                                <i class="ti-dribbble menu-icon"></i>
+                                <span class="menu-title">UUUBank 社團</span>
+                                <i class="menu-arrow"></i>
+                            </a>
+                            <div class="collapse" id="club">
+                                <ul class="nav flex-column sub-menu">
+
+                                    <li class="nav-item">
+                                        <asp:HyperLink ID="ClubHome" CssClass="nav-link" runat="server" NavigateUrl="~/2.ClubHome.aspx">UUUBank 社團首頁</asp:HyperLink>
+
+                                    </li>
+                                     <li ID="liClubManager" class="nav-item" runat="server" >
+                                         <asp:HyperLink ID="ClubManger" CssClass="nav-link" runat="server" NavigateUrl="~/2.ClubManager.aspx">UUUBank 社團管理</asp:HyperLink>
+                                        <%--<a class="nav-link" href="/4.manege_page.aspx?id=6">HR管理</a>--%>
+                                    </li>
+
+                                </ul>
+                            </div>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" data-bs-toggle="collapse" href="#form-elements" aria-expanded="false" aria-controls="form-elements">
+                                <i class="ti-shopping-cart menu-icon"></i>
+                                <span class="menu-title">全民瘋團購</span>
+                                <i class="menu-arrow"></i>
+                            </a>
+                            <div class="collapse" id="form-elements">
+                                <ul class="nav flex-column sub-menu">
+                                    <li class="nav-item">
+                                        <asp:HyperLink CssClass="nav-link" ID="HyperLink11" runat="server">
+                                            <%--<i class="ti-face-smile menu-icon"></i>--%>
+                                            <span class="menu-title">團購品項</span>
+                                        </asp:HyperLink>
+                                        <%--<a class="nav-link" href="/4.Product_Home_AJAX.aspx?id=6">團購品項</a>--%>
+                                    </li>
+                                    <li class="nav-item">
+                                        <asp:HyperLink CssClass="nav-link" ID="HyperLink12" runat="server">
+                                            <%--<i class="ti-face-smile menu-icon"></i>--%>
+                                            <span class="menu-title">我的團購車</span>
+                                        </asp:HyperLink>
+                                        <%--<a class="nav-link" href="/4.Myshopcartlist.aspx?id=6">我的團購車</a>--%>
+                                    </li>
+                                    <li class="nav-item">
+                                        <asp:HyperLink CssClass="nav-link" ID="HyperLink13" runat="server">
+                                            <%--<i class="ti-face-smile menu-icon"></i>--%>
+                                            <span class="menu-title">我是發起人</span>
+                                        </asp:HyperLink>
+                                        <%--<a class="nav-link" href="/4.Iamsponsor_Main.aspx?id=6">我是發起人</a>--%>
+                                    </li>
+                                    <li ID="HyperLink14aaa" class="nav-item" runat="server">
+                                        <asp:HyperLink CssClass="nav-link" ID="HyperLink14" runat="server">
+                                            <%--<i class="ti-face-smile menu-icon"></i>--%>
+                                            <span class="menu-title">HR管理</span>
+                                        </asp:HyperLink>
+                                        <%--<a class="nav-link" href="/4.manege_page.aspx?id=6">HR管理</a>--%>
+                                    </li>
+                                </ul>
+                            </div>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" data-bs-toggle="collapse" href="#form-element" aria-expanded="false" aria-controls="form-elements">
+                                <i class="ti-clipboard menu-icon"></i>
+                                <span class="menu-title">差勤</span>
+                                <i class="menu-arrow"></i>
+                            </a>
+                            <div class="collapse" id="form-element">
+                                <ul class="nav flex-column sub-menu" >
+                                    <li class="nav-item">
+                                        <asp:HyperLink ID="HyperLink5" CssClass="nav-link" Text="請假系統" runat="server"></asp:HyperLink></li>
+                                    <li class="nav-item">
+                                        <asp:HyperLink ID="HyperLink6" CssClass="nav-link" NavigateUrl="~/3.DayOffList.aspx" Text="請假紀錄" runat="server"></asp:HyperLink></li>
+                                    <li class="nav-item">
+                                        <asp:HyperLink ID="HyperLink7" CssClass="nav-link" Text="打卡系統" runat="server"></asp:HyperLink></li>
+                                    <li class="nav-item">
+                                        <asp:HyperLink ID="HyperLink8" CssClass="nav-link" NavigateUrl="~/3.ClockInList.aspx" Text="打卡紀錄" runat="server"></asp:HyperLink></li>
+                                     <li class="nav-item">
+                                        <asp:HyperLink ID="HyperLink9" CssClass="nav-link" Text="請假詳情" runat="server"></asp:HyperLink></li>
+                                      <li class="nav-item">
+                                        <asp:HyperLink ID="HyperLink10" CssClass="nav-link" NavigateUrl="~/3.MessageBoardList.aspx" Text="員工留言板" runat="server"></asp:HyperLink></li>
+                                </ul>
+                            </div>
+                        </li>
+                    </ul>
+                </nav>
+                <!-- partial -->
+                <div class="main-panel">
+                    <div>
+                        <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                        </asp:ContentPlaceHolder>
+                    </div>
+                    <!-- content-wrapper ends -->
+                    <!-- partial -->
+                </div>
+                <!-- main-panel ends -->
+            </div>
+            <!-- page-body-wrapper ends -->
+        </div>
+
+        <asp:HiddenField ID="hidclubma" runat="server" />
+
+
+        <script src="Scripts/jquery-3.6.0.js"></script>
+        <script src="packages/jQuery.UI.Combined.1.12.1/Content/Scripts/jquery-ui-1.12.1.js"></script>
+        <%-- tonymasterpage--%>
+        <script src="Scripts/bootstrap.js"></script>
+        <script src="Scripts/bootstrap.bundle.js"></script>
+        <%-- tonymasterpageEND--%>
+        <script src="../../vendors/js/vendor.bundle.base.js"></script>
+        <script src="../../js/off-canvas.js"></script>
+        <script src="../../js/hoverable-collapse.js"></script>
+        <script src="../../js/template.js"></script>
+        <script src="../../js/settings.js"></script>
+        <script src="../../js/todolist.js"></script>
+        <script src="js/avgrund.js"></script>
+        <script src="vendors/chart.js/Chart.min.js"></script>
+        <script src="vendors/jquery.avgrund/jquery.avgrund.min.js"></script>
+        <script src="2.custom/tonyJS/sweetalert2.js"></script>
+        <script>
+            $(function () {
+                //$("#logout").val("<i class='ti - power - off text - primary'></i>");
+                if ($("#hidclubma").val() === "no") {
+                    $("#liClubManager").prop("hidden", true);
+                }
+
+
+                $("#logout").click(function () {
+                    swal({
+                        title: '確認登出?',
+                        type: 'question',
+                        showCancelButton: true,
+                        cancelButtonText: '取消',
+                        confirmButtonText: '登出',
+                        focusConfirm: false
+                    }).then(function () {
+                        $.ajax({
+                            type: 'POST',
+                            url: "WebService.asmx/Logout",
+                            contentType: "application/json;utf-8",
+                            dataType: "json",
+                            async: false,
+                            success: function (result) {
+                                document.location.replace("../1.login.aspx")
+                            }
+                        });
+                    });
+                });
+            });
+        </script>
+        <asp:ContentPlaceHolder ID="scriptHolder" runat="server"></asp:ContentPlaceHolder>
+    </form>
+</body>
+</html>

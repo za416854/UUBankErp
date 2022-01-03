@@ -1,0 +1,23 @@
+﻿
+
+.row {
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    
+}
+
+body {
+    background-color: antiquewhite;
+}
+.imggg {
+    /*border: 1px dashed;*/
+    padding:3px;
+    /*margin:1px;*/
+}
+.imgborder {
+    border: 1px dashed;
+    padding: 3px;
+
+}
