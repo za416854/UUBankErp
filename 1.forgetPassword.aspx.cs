@@ -43,7 +43,7 @@ public partial class _1_login : System.Web.UI.Page
 
             //寄件者的帳號密碼
             MySmtp.Credentials = new System.Net.NetworkCredential(
-                "a80665308@gmail.com", "!@@Cc80665308");
+                "a80665308@gmail.com", "");
 
             //啟用 SSL
             MySmtp.EnableSsl = true;
