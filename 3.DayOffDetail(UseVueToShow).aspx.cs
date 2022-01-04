@@ -105,7 +105,7 @@ public partial class clubtable : System.Web.UI.Page
 
         //寄件者的帳號密碼
         MySmtp.Credentials = new System.Net.NetworkCredential(
-            "za416854@gmail.com", "chris710542506");
+            "za416854@gmail.com", "");
 
         //啟用 SSL
         MySmtp.EnableSsl = true;
