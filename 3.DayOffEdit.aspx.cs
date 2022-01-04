@@ -87,7 +87,7 @@ public partial class clubtable : System.Web.UI.Page
 
         //寄件者的帳號密碼
         MySmtp.Credentials = new System.Net.NetworkCredential(
-            "z416854@gmail.com", "chris710");
+            "z416854@gmail.com", "");
 
         //啟用 SSL
         MySmtp.EnableSsl = true;
@@ -130,7 +130,7 @@ Employee ep = Session["ep"] as Employee;
 
         //寄件者的帳號密碼
         MySmtp.Credentials = new System.Net.NetworkCredential(
-            "z416854@gmail.com", "chris710");
+            "z416854@gmail.com", "");
 
         //啟用 SSL
         MySmtp.EnableSsl = true;
